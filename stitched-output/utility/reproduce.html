@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title></title>
+
+<script type="text/javascript">
+window.onload = function() {
+  var imgs = document.getElementsByTagName('img'), i, img;
+  for (i = 0; i < imgs.length; i++) {
+    img = imgs[i];
+    // center an image if it is the only element of its parent
+    if (img.parentElement.childElementCount === 1)
+      img.parentElement.style.textAlign = 'center';
+  }
+};
+</script>
+
+<!-- Styles for R syntax highlighter -->
+<style type="text/css">
+   pre .operator,
+   pre .paren {
+     color: rgb(104, 118, 135)
+   }
+
+   pre .literal {
+     color: #990073
+   }
+
+   pre .number {
+     color: #099;
+   }
+
+   pre .comment {
+     color: #998;
+     font-style: italic
+   }
+
+   pre .keyword {
+     color: #900;
+     font-weight: bold
+   }
+
+   pre .identifier {
+     color: rgb(0, 0, 0);
+   }
+
+   pre .string {
+     color: #d14;
+   }
+</style>
+
+<!-- R syntax highlighter -->
+<script type="text/javascript">
+var hljs=new function(){function m(p){return p.replace(/&/gm,"&amp;").replace(/</gm,"&lt;")}function f(r,q,p){return RegExp(q,"m"+(r.cI?"i":"")+(p?"g":""))}function b(r){for(var p=0;p<r.childNodes.length;p++){var q=r.childNodes[p];if(q.nodeName=="CODE"){return q}if(!(q.nodeType==3&&q.nodeValue.match(/\s+/))){break}}}function h(t,s){var p="";for(var r=0;r<t.childNodes.length;r++){if(t.childNodes[r].nodeType==3){var q=t.childNodes[r].nodeValue;if(s){q=q.replace(/\n/g,"")}p+=q}else{if(t.childNodes[r].nodeName=="BR"){p+="\n"}else{p+=h(t.childNodes[r])}}}if(/MSIE [678]/.test(navigator.userAgent)){p=p.replace(/\r/g,"\n")}return p}function a(s){var r=s.className.split(/\s+/);r=r.concat(s.parentNode.className.split(/\s+/));for(var q=0;q<r.length;q++){var p=r[q].replace(/^language-/,"");if(e[p]){return p}}}function c(q){var p=[];(function(s,t){for(var r=0;r<s.childNodes.length;r++){if(s.childNodes[r].nodeType==3){t+=s.childNodes[r].nodeValue.length}else{if(s.childNodes[r].nodeName=="BR"){t+=1}else{if(s.childNodes[r].nodeType==1){p.push({event:"start",offset:t,node:s.childNodes[r]});t=arguments.callee(s.childNodes[r],t);p.push({event:"stop",offset:t,node:s.childNodes[r]})}}}}return t})(q,0);return p}function k(y,w,x){var q=0;var z="";var s=[];function u(){if(y.length&&w.length){if(y[0].offset!=w[0].offset){return(y[0].offset<w[0].offset)?y:w}else{return w[0].event=="start"?y:w}}else{return y.length?y:w}}function t(D){var A="<"+D.nodeName.toLowerCase();for(var B=0;B<D.attributes.length;B++){var C=D.attributes[B];A+=" "+C.nodeName.toLowerCase();if(C.value!==undefined&&C.value!==false&&C.value!==null){A+='="'+m(C.value)+'"'}}return A+">"}while(y.length||w.length){var v=u().splice(0,1)[0];z+=m(x.substr(q,v.offset-q));q=v.offset;if(v.event=="start"){z+=t(v.node);s.push(v.node)}else{if(v.event=="stop"){var p,r=s.length;do{r--;p=s[r];z+=("</"+p.nodeName.toLowerCase()+">")}while(p!=v.node);s.splice(r,1);while(r<s.length){z+=t(s[r]);r++}}}}return z+m(x.substr(q))}function j(){function q(x,y,v){if(x.compiled){return}var u;var s=[];if(x.k){x.lR=f(y,x.l||hljs.IR,true);for(var w in x.k){if(!x.k.hasOwnProperty(w)){continue}if(x.k[w] instanceof Object){u=x.k[w]}else{u=x.k;w="keyword"}for(var r in u){if(!u.hasOwnProperty(r)){continue}x.k[r]=[w,u[r]];s.push(r)}}}if(!v){if(x.bWK){x.b="\\b("+s.join("|")+")\\s"}x.bR=f(y,x.b?x.b:"\\B|\\b");if(!x.e&&!x.eW){x.e="\\B|\\b"}if(x.e){x.eR=f(y,x.e)}}if(x.i){x.iR=f(y,x.i)}if(x.r===undefined){x.r=1}if(!x.c){x.c=[]}x.compiled=true;for(var t=0;t<x.c.length;t++){if(x.c[t]=="self"){x.c[t]=x}q(x.c[t],y,false)}if(x.starts){q(x.starts,y,false)}}for(var p in e){if(!e.hasOwnProperty(p)){continue}q(e[p].dM,e[p],true)}}function d(B,C){if(!j.called){j();j.called=true}function q(r,M){for(var L=0;L<M.c.length;L++){if((M.c[L].bR.exec(r)||[null])[0]==r){return M.c[L]}}}function v(L,r){if(D[L].e&&D[L].eR.test(r)){return 1}if(D[L].eW){var M=v(L-1,r);return M?M+1:0}return 0}function w(r,L){return L.i&&L.iR.test(r)}function K(N,O){var M=[];for(var L=0;L<N.c.length;L++){M.push(N.c[L].b)}var r=D.length-1;do{if(D[r].e){M.push(D[r].e)}r--}while(D[r+1].eW);if(N.i){M.push(N.i)}return f(O,M.join("|"),true)}function p(M,L){var N=D[D.length-1];if(!N.t){N.t=K(N,E)}N.t.lastIndex=L;var r=N.t.exec(M);return r?[M.substr(L,r.index-L),r[0],false]:[M.substr(L),"",true]}function z(N,r){var L=E.cI?r[0].toLowerCase():r[0];var M=N.k[L];if(M&&M instanceof Array){return M}return false}function F(L,P){L=m(L);if(!P.k){return L}var r="";var O=0;P.lR.lastIndex=0;var M=P.lR.exec(L);while(M){r+=L.substr(O,M.index-O);var N=z(P,M);if(N){x+=N[1];r+='<span class="'+N[0]+'">'+M[0]+"</span>"}else{r+=M[0]}O=P.lR.lastIndex;M=P.lR.exec(L)}return r+L.substr(O,L.length-O)}function J(L,M){if(M.sL&&e[M.sL]){var r=d(M.sL,L);x+=r.keyword_count;return r.value}else{return F(L,M)}}function I(M,r){var L=M.cN?'<span class="'+M.cN+'">':"";if(M.rB){y+=L;M.buffer=""}else{if(M.eB){y+=m(r)+L;M.buffer=""}else{y+=L;M.buffer=r}}D.push(M);A+=M.r}function G(N,M,Q){var R=D[D.length-1];if(Q){y+=J(R.buffer+N,R);return false}var P=q(M,R);if(P){y+=J(R.buffer+N,R);I(P,M);return P.rB}var L=v(D.length-1,M);if(L){var O=R.cN?"</span>":"";if(R.rE){y+=J(R.buffer+N,R)+O}else{if(R.eE){y+=J(R.buffer+N,R)+O+m(M)}else{y+=J(R.buffer+N+M,R)+O}}while(L>1){O=D[D.length-2].cN?"</span>":"";y+=O;L--;D.length--}var r=D[D.length-1];D.length--;D[D.length-1].buffer="";if(r.starts){I(r.starts,"")}return R.rE}if(w(M,R)){throw"Illegal"}}var E=e[B];var D=[E.dM];var A=0;var x=0;var y="";try{var s,u=0;E.dM.buffer="";do{s=p(C,u);var t=G(s[0],s[1],s[2]);u+=s[0].length;if(!t){u+=s[1].length}}while(!s[2]);if(D.length>1){throw"Illegal"}return{r:A,keyword_count:x,value:y}}catch(H){if(H=="Illegal"){return{r:0,keyword_count:0,value:m(C)}}else{throw H}}}function g(t){var p={keyword_count:0,r:0,value:m(t)};var r=p;for(var q in e){if(!e.hasOwnProperty(q)){continue}var s=d(q,t);s.language=q;if(s.keyword_count+s.r>r.keyword_count+r.r){r=s}if(s.keyword_count+s.r>p.keyword_count+p.r){r=p;p=s}}if(r.language){p.second_best=r}return p}function i(r,q,p){if(q){r=r.replace(/^((<[^>]+>|\t)+)/gm,function(t,w,v,u){return w.replace(/\t/g,q)})}if(p){r=r.replace(/\n/g,"<br>")}return r}function n(t,w,r){var x=h(t,r);var v=a(t);var y,s;if(v){y=d(v,x)}else{return}var q=c(t);if(q.length){s=document.createElement("pre");s.innerHTML=y.value;y.value=k(q,c(s),x)}y.value=i(y.value,w,r);var u=t.className;if(!u.match("(\\s|^)(language-)?"+v+"(\\s|$)")){u=u?(u+" "+v):v}if(/MSIE [678]/.test(navigator.userAgent)&&t.tagName=="CODE"&&t.parentNode.tagName=="PRE"){s=t.parentNode;var p=document.createElement("div");p.innerHTML="<pre><code>"+y.value+"</code></pre>";t=p.firstChild.firstChild;p.firstChild.cN=s.cN;s.parentNode.replaceChild(p.firstChild,s)}else{t.innerHTML=y.value}t.className=u;t.result={language:v,kw:y.keyword_count,re:y.r};if(y.second_best){t.second_best={language:y.second_best.language,kw:y.second_best.keyword_count,re:y.second_best.r}}}function o(){if(o.called){return}o.called=true;var r=document.getElementsByTagName("pre");for(var p=0;p<r.length;p++){var q=b(r[p]);if(q){n(q,hljs.tabReplace)}}}function l(){if(window.addEventListener){window.addEventListener("DOMContentLoaded",o,false);window.addEventListener("load",o,false)}else{if(window.attachEvent){window.attachEvent("onload",o)}else{window.onload=o}}}var e={};this.LANGUAGES=e;this.highlight=d;this.highlightAuto=g;this.fixMarkup=i;this.highlightBlock=n;this.initHighlighting=o;this.initHighlightingOnLoad=l;this.IR="[a-zA-Z][a-zA-Z0-9_]*";this.UIR="[a-zA-Z_][a-zA-Z0-9_]*";this.NR="\\b\\d+(\\.\\d+)?";this.CNR="\\b(0[xX][a-fA-F0-9]+|(\\d+(\\.\\d*)?|\\.\\d+)([eE][-+]?\\d+)?)";this.BNR="\\b(0b[01]+)";this.RSR="!|!=|!==|%|%=|&|&&|&=|\\*|\\*=|\\+|\\+=|,|\\.|-|-=|/|/=|:|;|<|<<|<<=|<=|=|==|===|>|>=|>>|>>=|>>>|>>>=|\\?|\\[|\\{|\\(|\\^|\\^=|\\||\\|=|\\|\\||~";this.ER="(?![\\s\\S])";this.BE={b:"\\\\.",r:0};this.ASM={cN:"string",b:"'",e:"'",i:"\\n",c:[this.BE],r:0};this.QSM={cN:"string",b:'"',e:'"',i:"\\n",c:[this.BE],r:0};this.CLCM={cN:"comment",b:"//",e:"$"};this.CBLCLM={cN:"comment",b:"/\\*",e:"\\*/"};this.HCM={cN:"comment",b:"#",e:"$"};this.NM={cN:"number",b:this.NR,r:0};this.CNM={cN:"number",b:this.CNR,r:0};this.BNM={cN:"number",b:this.BNR,r:0};this.inherit=function(r,s){var p={};for(var q in r){p[q]=r[q]}if(s){for(var q in s){p[q]=s[q]}}return p}}();hljs.LANGUAGES.cpp=function(){var a={keyword:{"false":1,"int":1,"float":1,"while":1,"private":1,"char":1,"catch":1,"export":1,virtual:1,operator:2,sizeof:2,dynamic_cast:2,typedef:2,const_cast:2,"const":1,struct:1,"for":1,static_cast:2,union:1,namespace:1,unsigned:1,"long":1,"throw":1,"volatile":2,"static":1,"protected":1,bool:1,template:1,mutable:1,"if":1,"public":1,friend:2,"do":1,"return":1,"goto":1,auto:1,"void":2,"enum":1,"else":1,"break":1,"new":1,extern:1,using:1,"true":1,"class":1,asm:1,"case":1,typeid:1,"short":1,reinterpret_cast:2,"default":1,"double":1,register:1,explicit:1,signed:1,typename:1,"try":1,"this":1,"switch":1,"continue":1,wchar_t:1,inline:1,"delete":1,alignof:1,char16_t:1,char32_t:1,constexpr:1,decltype:1,noexcept:1,nullptr:1,static_assert:1,thread_local:1,restrict:1,_Bool:1,complex:1},built_in:{std:1,string:1,cin:1,cout:1,cerr:1,clog:1,stringstream:1,istringstream:1,ostringstream:1,auto_ptr:1,deque:1,list:1,queue:1,stack:1,vector:1,map:1,set:1,bitset:1,multiset:1,multimap:1,unordered_set:1,unordered_map:1,unordered_multiset:1,unordered_multimap:1,array:1,shared_ptr:1}};return{dM:{k:a,i:"</",c:[hljs.CLCM,hljs.CBLCLM,hljs.QSM,{cN:"string",b:"'\\\\?.",e:"'",i:"."},{cN:"number",b:"\\b(\\d+(\\.\\d*)?|\\.\\d+)(u|U|l|L|ul|UL|f|F)"},hljs.CNM,{cN:"preprocessor",b:"#",e:"$"},{cN:"stl_container",b:"\\b(deque|list|queue|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array)\\s*<",e:">",k:a,r:10,c:["self"]}]}}}();hljs.LANGUAGES.r={dM:{c:[hljs.HCM,{cN:"number",b:"\\b0[xX][0-9a-fA-F]+[Li]?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+(?:[eE][+\\-]?\\d*)?L\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\b\\d+\\.(?!\\d)(?:i\\b)?",e:hljs.IMMEDIATE_RE,r:1},{cN:"number",b:"\\b\\d+(?:\\.\\d*)?(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"number",b:"\\.\\d+(?:[eE][+\\-]?\\d*)?i?\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"keyword",b:"(?:tryCatch|library|setGeneric|setGroupGeneric)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\.",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\.\\.\\d+(?![\\w.])",e:hljs.IMMEDIATE_RE,r:10},{cN:"keyword",b:"\\b(?:function)",e:hljs.IMMEDIATE_RE,r:2},{cN:"keyword",b:"(?:if|in|break|next|repeat|else|for|return|switch|while|try|stop|warning|require|attach|detach|source|setMethod|setClass)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"literal",b:"(?:NA|NA_integer_|NA_real_|NA_character_|NA_complex_)\\b",e:hljs.IMMEDIATE_RE,r:10},{cN:"literal",b:"(?:NULL|TRUE|FALSE|T|F|Inf|NaN)\\b",e:hljs.IMMEDIATE_RE,r:1},{cN:"identifier",b:"[a-zA-Z.][a-zA-Z0-9._]*\\b",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"<\\-(?!\\s*\\d)",e:hljs.IMMEDIATE_RE,r:2},{cN:"operator",b:"\\->|<\\-",e:hljs.IMMEDIATE_RE,r:1},{cN:"operator",b:"%%|~",e:hljs.IMMEDIATE_RE},{cN:"operator",b:">=|<=|==|!=|\\|\\||&&|=|\\+|\\-|\\*|/|\\^|>|<|!|&|\\||\\$|:",e:hljs.IMMEDIATE_RE,r:0},{cN:"operator",b:"%",e:"%",i:"\\n",r:1},{cN:"identifier",b:"`",e:"`",r:0},{cN:"string",b:'"',e:'"',c:[hljs.BE],r:0},{cN:"string",b:"'",e:"'",c:[hljs.BE],r:0},{cN:"paren",b:"[[({\\])}]",e:hljs.IMMEDIATE_RE,r:0}]}};
+hljs.initHighlightingOnLoad();
+</script>
+
+
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 13px;
+}
+
+body {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+  line-height: 20px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 {
+   font-size:2.2em;
+}
+
+h2 {
+   font-size:1.8em;
+}
+
+h3 {
+   font-size:1.4em;
+}
+
+h4 {
+   font-size:1.0em;
+}
+
+h5 {
+   font-size:0.9em;
+}
+
+h6 {
+   font-size:0.8em;
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre, img {
+  max-width: 100%;
+}
+pre {
+  overflow-x: auto;
+}
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code {
+  font-size: 92%;
+  border: 1px solid #ccc;
+}
+
+code[class] {
+  background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * {
+      background: transparent !important;
+      color: black !important;
+      filter:none !important;
+      -ms-filter: none !important;
+   }
+
+   body {
+      font-size:12pt;
+      max-width:100%;
+   }
+
+   a, a:visited {
+      text-decoration: underline;
+   }
+
+   hr {
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote {
+      padding-right: 1em;
+      page-break-inside: avoid;
+   }
+
+   tr, img {
+      page-break-inside: avoid;
+   }
+
+   img {
+      max-width: 100% !important;
+   }
+
+   @page :left {
+      margin: 15mm 20mm 15mm 10mm;
+   }
+
+   @page :right {
+      margin: 15mm 10mm 15mm 20mm;
+   }
+
+   p, h2, h3 {
+      orphans: 3; widows: 3;
+   }
+
+   h2, h3 {
+      page-break-after: avoid;
+   }
+}
+</style>
+
+
+
+</head>
+
+<body>
+<p>This report was automatically generated with the R package <strong>knitr</strong>
+(version 1.21).</p>
+
+<pre><code class="r"># knitr::stitch_rmd(script=&quot;utility/reproduce.R&quot;, output=&quot;stitched-output/utility/reproduce.md&quot;)
+rm(list=ls(all=TRUE)) #Clear the memory of variables from previous run. This is not called by knitr, because it&#39;s above the first chunk.
+</code></pre>
+
+<pre><code class="r">library(&quot;magrittr&quot;)
+requireNamespace(&quot;purrr&quot;)
+</code></pre>
+
+<pre><code>## Loading required namespace: purrr
+</code></pre>
+
+<pre><code class="r"># requireNamespace(&quot;checkmate&quot;)
+requireNamespace(&quot;OuhscMunge&quot;) # remotes::install_github(&quot;OuhscBbmc/OuhscMunge&quot;)
+</code></pre>
+
+<pre><code>## Loading required namespace: OuhscMunge
+</code></pre>
+
+<pre><code class="r"># config        &lt;- config::get()
+
+# Allow multiple files below to have the same chunk name.
+#    If the `root.dir` option is properly managed in the Rmd files, no files will be overwritten.
+options(knitr.duplicate.label = &quot;allow&quot;)
+
+ds_rail  &lt;- tibble::tribble(
+  ~fx               , ~path,
+
+  # Simulate observed data
+  &quot;run_file_r&quot;      , &quot;manipulation/simulation/simulate-mlm-1.R&quot;,
+  # &quot;run_file_r&quot;      , &quot;manipulation/simulation/simulate-te.R&quot;,
+
+  # First run the manipulation files to prepare the dataset(s).
+  &quot;run_file_r&quot;      , &quot;manipulation/car-ellis.R&quot;,
+  &quot;run_file_r&quot;      , &quot;manipulation/mlm-1-ellis.R&quot;,
+  &quot;run_file_r&quot;      , &quot;manipulation/te-ellis.R&quot;,
+  &quot;run_file_r&quot;      , &quot;manipulation/subject-1-ellis.R&quot;,
+
+  # &quot;run_ferry_sql&quot; , &quot;manipulation/inserts-to-normalized-tables.sql&quot;
+  &quot;run_file_r&quot;      , &quot;manipulation/randomization-block-simple.R&quot;,
+
+  # Scribes
+  &quot;run_file_r&quot;    , &quot;manipulation/mlm-1-scribe.R&quot;,
+  &quot;run_file_r&quot;    , &quot;manipulation/te-scribe.R&quot;,
+
+  # Reports
+  &quot;run_rmd&quot;       , &quot;analysis/car-report-1/car-report-1.Rmd&quot;,
+  &quot;run_rmd&quot;       , &quot;analysis/report-te-1/report-te-1.Rmd&quot;,
+
+  # Dashboards
+  &quot;run_rmd&quot;       , &quot;analysis/dashboard-1/dashboard-1.Rmd&quot;
+)
+
+run_file_r &lt;- function( minion ) {
+  message(&quot;\nStarting `&quot;, basename(minion), &quot;` at &quot;, Sys.time(), &quot;.&quot;)
+  base::source(minion, local=new.env())
+  message(&quot;Completed `&quot;, basename(minion), &quot;`.&quot;)
+  return( TRUE )
+}
+run_ferry_sql &lt;- function( minion ) {
+  message(&quot;\nStarting `&quot;, basename(minion), &quot;` at &quot;, Sys.time(), &quot;.&quot;)
+  OuhscMunge::execute_sql_file(minion, config$dsn_staging)
+  message(&quot;Completed `&quot;, basename(minion), &quot;`.&quot;)
+  return( TRUE )
+}
+run_rmd &lt;- function( minion ) {
+  message(&quot;\nStarting `&quot;, basename(minion), &quot;` at &quot;, Sys.time(), &quot;.&quot;)
+  path_out &lt;- rmarkdown::render(minion, envir=new.env())
+  Sys.sleep(3) # Sleep for three secs, to let pandoc finish
+  message(path_out)
+  return( TRUE )
+}
+
+(file_found &lt;- purrr::map_lgl(ds_rail$path, file.exists))
+</code></pre>
+
+<pre><code>##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+</code></pre>
+
+<pre><code class="r">if( !all(file_found) ) {
+  warning(&quot;--Missing files-- \n&quot;, paste0(ds_rail$path[!file_found], collapse=&quot;\n&quot;))
+  stop(&quot;All source files to be run should exist.&quot;)
+}
+</code></pre>
+
+<pre><code class="r">message(&quot;Starting update of files at &quot;, Sys.time(), &quot;.&quot;)
+</code></pre>
+
+<pre><code>## Starting update of files at 2019-02-27 21:16:27.
+</code></pre>
+
+<pre><code class="r">elapsed_time &lt;- system.time({
+  purrr::invoke_map_lgl(
+    ds_rail$fx,
+    ds_rail$path
+  )
+})
+</code></pre>
+
+<pre><code>## 
+## Starting `simulate-mlm-1.R` at 2019-02-27 21:16:27.
+</code></pre>
+
+<pre><code>## Loading required namespace: readr
+</code></pre>
+
+<pre><code>## Loading required namespace: tidyr
+</code></pre>
+
+<pre><code>## Loading required namespace: dplyr
+</code></pre>
+
+<pre><code>## Loading required namespace: testit
+</code></pre>
+
+<pre><code>## Loading required namespace: checkmate
+</code></pre>
+
+<pre><code>## Loading required namespace: DBI
+</code></pre>
+
+<pre><code>## Loading required namespace: RSQLite
+</code></pre>
+
+<pre><code>## Completed `simulate-mlm-1.R`.
+</code></pre>
+
+<pre><code>## 
+## Starting `car-ellis.R` at 2019-02-27 21:16:29.
+</code></pre>
+
+<pre><code>## Parsed with column specification:
+## cols(
+##   model = col_character(),
+##   mpg = col_double(),
+##   cyl = col_double(),
+##   disp = col_double(),
+##   hp = col_double(),
+##   drat = col_double(),
+##   wt = col_double(),
+##   qsec = col_double(),
+##   vs = col_double(),
+##   am = col_double(),
+##   gear = col_double(),
+##   carb = col_double()
+## )
+</code></pre>
+
+<pre><code>## Completed `car-ellis.R`.
+</code></pre>
+
+<pre><code>## 
+## Starting `mlm-1-ellis.R` at 2019-02-27 21:16:29.
+</code></pre>
+
+<pre><code>## Completed `mlm-1-ellis.R`.
+</code></pre>
+
+<pre><code>## 
+## Starting `te-ellis.R` at 2019-02-27 21:16:30.
+</code></pre>
+
+<pre><code>## Completed `te-ellis.R`.
+</code></pre>
+
+<pre><code>## 
+## Starting `subject-1-ellis.R` at 2019-02-27 21:16:30.
+</code></pre>
+
+<pre><code>## Completed `subject-1-ellis.R`.
+</code></pre>
+
+<pre><code>## 
+## Starting `randomization-block-simple.R` at 2019-02-27 21:16:30.
+</code></pre>
+
+<pre><code>## Completed `randomization-block-simple.R`.
+</code></pre>
+
+<pre><code>## 
+## Starting `mlm-1-scribe.R` at 2019-02-27 21:16:30.
+</code></pre>
+
+<pre><code>## Loading required namespace: odbc
+</code></pre>
+
+<pre><code>## Loading required namespace: RcppRoll
+</code></pre>
+
+<pre><code>## Unique subjects    : 20
+## Unique waves       : 10
+## Unique counties    : 3
+## Year range         : 2000 2014
+</code></pre>
+
+<pre><code>## Completed `mlm-1-scribe.R`.
+</code></pre>
+
+<pre><code>## 
+## Starting `te-scribe.R` at 2019-02-27 21:16:30.
+</code></pre>
+
+<pre><code>## Unique counties    : 77
+## Unique months      : 40
+## Month range        : 2012-06-15  2015-09-15
+</code></pre>
+
+<pre><code>## Completed `te-scribe.R`.
+</code></pre>
+
+<pre><code>## 
+## Starting `car-report-1.Rmd` at 2019-02-27 21:16:31.
+</code></pre>
+
+<pre><code>## 
+## 
+## processing file: car-report-1.Rmd
+</code></pre>
+
+<pre><code>## 
+  |                                                                       
+  |                                                                 |   0%
+  |                                                                       
+  |..                                                               |   3%
+##    inline R code fragments
+## 
+## 
+  |                                                                       
+  |....                                                             |   7%
+## label: unnamed-chunk-2 (with options) 
+## List of 2
+##  $ echo   : symbol F
+##  $ message: symbol F
+## 
+## 
+  |                                                                       
+  |.......                                                          |  10%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.........                                                        |  14%
+## label: set-options (with options) 
+## List of 1
+##  $ echo: symbol F
+## 
+## 
+  |                                                                       
+  |...........                                                      |  17%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.............                                                    |  21%
+## label: load-sources (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |................                                                 |  24%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |..................                                               |  28%
+## label: load-packages (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |....................                                             |  31%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |......................                                           |  34%
+## label: declare-globals (with options) 
+## List of 3
+##  $ echo   : symbol echo_chunks
+##  $ results: chr &quot;show&quot;
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |.........................                                        |  38%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |...........................                                      |  41%
+## label: rmd-specific (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |.............................                                    |  45%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |...............................                                  |  48%
+## label: load-data (with options) 
+## List of 3
+##  $ echo   : symbol echo_chunks
+##  $ results: chr &quot;show&quot;
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |..................................                               |  52%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |....................................                             |  55%
+## label: tweak-data (with options) 
+## List of 3
+##  $ echo   : symbol echo_chunks
+##  $ results: chr &quot;show&quot;
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |......................................                           |  59%
+##    inline R code fragments
+## 
+## 
+  |                                                                       
+  |........................................                         |  62%
+## label: marginals (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+</code></pre>
+
+<pre><code>## 
+  |                                                                       
+  |...........................................                      |  66%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.............................................                    |  69%
+## label: scatterplots (with options) 
+## List of 3
+##  $ echo     : symbol echo_chunks
+##  $ message  : symbol message_chunks
+##  $ fig.width: num 7
+</code></pre>
+
+<pre><code>## 
+  |                                                                       
+  |...............................................                  |  72%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.................................................                |  76%
+## label: models (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |....................................................             |  79%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |......................................................           |  83%
+## label: model-results-table (with options) 
+## List of 3
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+##  $ warning: logi TRUE
+## 
+## 
+  |                                                                       
+  |........................................................         |  86%
+##    inline R code fragments
+## 
+## 
+  |                                                                       
+  |..........................................................       |  90%
+## label: session-info-3 (with options) 
+## List of 1
+##  $ echo: logi FALSE
+## 
+## 
+  |                                                                       
+  |.............................................................    |  93%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |...............................................................  |  97%
+## label: session-duration (with options) 
+## List of 1
+##  $ echo: logi FALSE
+## 
+## 
+  |                                                                       
+  |.................................................................| 100%
+##    inline R code fragments
+</code></pre>
+
+<pre><code>## output file: car-report-1.knit.md
+</code></pre>
+
+<pre><code>## /usr/lib/rstudio/bin/pandoc/pandoc +RTS -K512m -RTS car-report-1.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash+smart --output car-report-1.html --email-obfuscation none --self-contained --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /home/wibeasley/R/x86_64-pc-linux-gnu-library/3.5/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --number-sections --css ../common/styles.css --variable &#39;theme:bootstrap&#39; --include-in-header /tmp/RtmpoKZT9P/rmarkdown-str1a5732b6c7ab.html --mathjax --variable &#39;mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#39;
+</code></pre>
+
+<pre><code>## 
+## Output created: car-report-1.html
+</code></pre>
+
+<pre><code>## /home/wibeasley/Documents/wibeasley/RAnalysisSkeleton/analysis/car-report-1/car-report-1.html
+</code></pre>
+
+<pre><code>## 
+## Starting `report-te-1.Rmd` at 2019-02-27 21:16:42.
+</code></pre>
+
+<pre><code>## 
+## 
+## processing file: report-te-1.Rmd
+</code></pre>
+
+<pre><code>## 
+  |                                                                       
+  |                                                                 |   0%
+  |                                                                       
+  |..                                                               |   3%
+##    inline R code fragments
+## 
+## 
+  |                                                                       
+  |....                                                             |   6%
+## label: unnamed-chunk-1-2 (with options) 
+## List of 2
+##  $ echo   : symbol F
+##  $ message: symbol F
+## 
+## 
+  |                                                                       
+  |......                                                           |  10%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |........                                                         |  13%
+## label: set-options (with options) 
+## List of 1
+##  $ echo: symbol F
+## 
+## 
+  |                                                                       
+  |..........                                                       |  16%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.............                                                    |  19%
+## label: load-sources (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |...............                                                  |  23%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.................                                                |  26%
+## label: load-packages (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+</code></pre>
+
+<pre><code>## Loading required package: Matrix
+</code></pre>
+
+<pre><code>## 
+  |                                                                       
+  |...................                                              |  29%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.....................                                            |  32%
+## label: declare-globals (with options) 
+## List of 3
+##  $ echo   : symbol echo_chunks
+##  $ results: chr &quot;show&quot;
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |.......................                                          |  35%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.........................                                        |  39%
+## label: rmd-specific (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |...........................                                      |  42%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.............................                                    |  45%
+## label: load-data (with options) 
+## List of 3
+##  $ echo   : symbol echo_chunks
+##  $ results: chr &quot;show&quot;
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |...............................                                  |  48%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |..................................                               |  52%
+## label: tweak-data (with options) 
+## List of 3
+##  $ echo   : symbol echo_chunks
+##  $ results: chr &quot;show&quot;
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |....................................                             |  55%
+##    inline R code fragments
+## 
+## 
+  |                                                                       
+  |......................................                           |  58%
+## label: marginals-county (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+</code></pre>
+
+<pre><code>## 
+  |                                                                       
+  |........................................                         |  61%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |..........................................                       |  65%
+## label: marginals-county-month (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+</code></pre>
+
+<pre><code>## 
+  |                                                                       
+  |............................................                     |  68%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |..............................................                   |  71%
+## label: scatterplots (with options) 
+## List of 4
+##  $ echo      : symbol echo_chunks
+##  $ message   : symbol message_chunks
+##  $ fig.width : num 9
+##  $ fig.height: num 6
+</code></pre>
+
+<pre><code>## 
+  |                                                                       
+  |................................................                 |  74%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |..................................................               |  77%
+## label: models (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+</code></pre>
+
+<pre><code>## refitting model(s) with ML (instead of REML)
+</code></pre>
+
+<pre><code>## 
+  |                                                                       
+  |....................................................             |  81%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.......................................................          |  84%
+## label: model-results-table (with options) 
+## List of 3
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+##  $ warning: logi TRUE
+## 
+## 
+  |                                                                       
+  |.........................................................        |  87%
+##    inline R code fragments
+## 
+## 
+  |                                                                       
+  |...........................................................      |  90%
+## label: session-info-3 (with options) 
+## List of 1
+##  $ echo: logi FALSE
+## 
+## 
+  |                                                                       
+  |.............................................................    |  94%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |...............................................................  |  97%
+## label: session-duration (with options) 
+## List of 1
+##  $ echo: logi FALSE
+## 
+## 
+  |                                                                       
+  |.................................................................| 100%
+##    inline R code fragments
+</code></pre>
+
+<pre><code>## output file: report-te-1.knit.md
+</code></pre>
+
+<pre><code>## /usr/lib/rstudio/bin/pandoc/pandoc +RTS -K512m -RTS report-te-1.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash+smart --output report-te-1.html --email-obfuscation none --self-contained --standalone --section-divs --table-of-contents --toc-depth 3 --variable toc_float=1 --variable toc_selectors=h1,h2,h3 --variable toc_collapsed=1 --variable toc_smooth_scroll=1 --variable toc_print=1 --template /home/wibeasley/R/x86_64-pc-linux-gnu-library/3.5/rmarkdown/rmd/h/default.html --no-highlight --variable highlightjs=1 --number-sections --css ../common/styles.css --variable &#39;theme:bootstrap&#39; --include-in-header /tmp/RtmpoKZT9P/rmarkdown-str1a577ffc67c6.html --mathjax --variable &#39;mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#39;
+</code></pre>
+
+<pre><code>## 
+## Output created: report-te-1.html
+</code></pre>
+
+<pre><code>## /home/wibeasley/Documents/wibeasley/RAnalysisSkeleton/analysis/report-te-1/report-te-1.html
+</code></pre>
+
+<pre><code>## 
+## Starting `dashboard-1.Rmd` at 2019-02-27 21:17:00.
+</code></pre>
+
+<pre><code>## 
+## 
+## processing file: dashboard-1.Rmd
+</code></pre>
+
+<pre><code>## 
+  |                                                                       
+  |                                                                 |   0%
+  |                                                                       
+  |..                                                               |   3%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |....                                                             |   6%
+## label: unnamed-chunk-1-2 (with options) 
+## List of 2
+##  $ echo   : symbol F
+##  $ message: symbol F
+## 
+## 
+  |                                                                       
+  |.....                                                            |   8%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.......                                                          |  11%
+## label: set-options (with options) 
+## List of 1
+##  $ echo: symbol F
+## 
+## 
+  |                                                                       
+  |.........                                                        |  14%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |...........                                                      |  17%
+## label: load-sources (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |.............                                                    |  19%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |..............                                                   |  22%
+## label: load-packages (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+</code></pre>
+
+<pre><code>## 
+## Attaching package: &#39;plotly&#39;
+</code></pre>
+
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     last_plot
+</code></pre>
+
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     filter
+</code></pre>
+
+<pre><code>## The following object is masked from &#39;package:graphics&#39;:
+## 
+##     layout
+</code></pre>
+
+<pre><code>## Loading required namespace: broom
+</code></pre>
+
+<pre><code>## Loading required namespace: kableExtra
+</code></pre>
+
+<pre><code>## 
+  |                                                                       
+  |................                                                 |  25%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |..................                                               |  28%
+## label: declare-globals (with options) 
+## List of 3
+##  $ echo   : symbol echo_chunks
+##  $ results: chr &quot;show&quot;
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |....................                                             |  31%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |......................                                           |  33%
+## label: rmd-specific (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |.......................                                          |  36%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.........................                                        |  39%
+## label: load-data (with options) 
+## List of 3
+##  $ echo   : symbol echo_chunks
+##  $ results: chr &quot;show&quot;
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |...........................                                      |  42%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.............................                                    |  44%
+## label: tweak-data (with options) 
+## List of 3
+##  $ echo   : symbol echo_chunks
+##  $ results: chr &quot;show&quot;
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |...............................                                  |  47%
+##    inline R code fragments
+## 
+## 
+  |                                                                       
+  |................................                                 |  50%
+## label: headline-graph (with options) 
+## List of 3
+##  $ echo   : symbol echo_chunks
+##  $ results: chr &quot;asis&quot;
+##  $ message: symbol message_chunks
+</code></pre>
+
+<pre><code>## 
+  |                                                                       
+  |..................................                               |  53%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |....................................                             |  56%
+## label: tables-county-year (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |......................................                           |  58%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |........................................                         |  61%
+## label: tables-county (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |..........................................                       |  64%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |...........................................                      |  67%
+## label: tables-annotation (with options) 
+## List of 2
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+## 
+## 
+  |                                                                       
+  |.............................................                    |  69%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |...............................................                  |  72%
+## label: spaghetti (with options) 
+## List of 5
+##  $ echo      : symbol echo_chunks
+##  $ message   : symbol message_chunks
+##  $ results   : chr &quot;asis&quot;
+##  $ fig.height: num 10
+##  $ fig.width : num 20
+</code></pre>
+
+<pre><code>## 
+  |                                                                       
+  |.................................................                |  75%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |...................................................              |  78%
+## label: marginals (with options) 
+## List of 3
+##  $ echo   : symbol echo_chunks
+##  $ message: symbol message_chunks
+##  $ results: chr &quot;asis&quot;
+## 
+## 
+  |                                                                       
+  |....................................................             |  81%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |......................................................           |  83%
+## label: unnamed-chunk-3 (with options) 
+## List of 1
+##  $ child: chr &quot;../common/dashboard/documentation-all-dashboards-1.Rmd&quot;
+</code></pre>
+
+<pre><code>## 
+## 
+## processing file: ./../common/dashboard/documentation-all-dashboards-1.Rmd
+</code></pre>
+
+<pre><code>## 
+  |                                                                                                
+  |                                                                                          |   0%
+  |                                                                                                
+  |..........................................................................................| 100%
+##   ordinary text without R code
+## 
+## 
+## 
+  |                                                                       
+  |........................................................         |  86%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |..........................................................       |  89%
+## label: unnamed-chunk-4 (with options) 
+## List of 1
+##  $ child: chr &quot;../common/dashboard/documentation-glossary-1.Rmd&quot;
+</code></pre>
+
+<pre><code>## 
+## 
+## processing file: ./../common/dashboard/documentation-glossary-1.Rmd
+</code></pre>
+
+<pre><code>## 
+  |                                                                                                
+  |                                                                                          |   0%
+  |                                                                                                
+  |..........................................................................................| 100%
+##   ordinary text without R code
+## 
+## 
+## 
+  |                                                                       
+  |............................................................     |  92%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.............................................................    |  94%
+## label: unnamed-chunk-5 (with options) 
+## List of 1
+##  $ child: chr &quot;../common/dashboard/documentation-tips-1.Rmd&quot;
+</code></pre>
+
+<pre><code>## 
+## 
+## processing file: ./../common/dashboard/documentation-tips-1.Rmd
+</code></pre>
+
+<pre><code>## 
+  |                                                                                                
+  |                                                                                          |   0%
+  |                                                                                                
+  |..........................................................................................| 100%
+##   ordinary text without R code
+## 
+## 
+## 
+  |                                                                       
+  |...............................................................  |  97%
+##   ordinary text without R code
+## 
+## 
+  |                                                                       
+  |.................................................................| 100%
+## label: unnamed-chunk-6 (with options) 
+## List of 1
+##  $ child: chr &quot;../common/dashboard/documentation-config-1.Rmd&quot;
+</code></pre>
+
+<pre><code>## 
+## 
+## processing file: ./../common/dashboard/documentation-config-1.Rmd
+</code></pre>
+
+<pre><code>## 
+  |                                                                                                
+  |                                                                                          |   0%
+  |                                                                                                
+  |..................                                                                        |  20%
+##   ordinary text without R code
+## 
+## 
+  |                                                                                                
+  |....................................                                                      |  40%
+## label: session-duration (with options) 
+## List of 1
+##  $ echo: logi FALSE
+## 
+## 
+  |                                                                                                
+  |......................................................                                    |  60%
+##    inline R code fragments
+## 
+## 
+  |                                                                                                
+  |........................................................................                  |  80%
+## label: session-info-2 (with options) 
+## List of 1
+##  $ echo: logi FALSE
+## 
+## 
+  |                                                                                                
+  |..........................................................................................| 100%
+##   ordinary text without R code
+</code></pre>
+
+<pre><code>## output file: dashboard-1.knit.md
+</code></pre>
+
+<pre><code>## /usr/lib/rstudio/bin/pandoc/pandoc +RTS -K512m -RTS dashboard-1.utf8.md --to html4 --from markdown+autolink_bare_uris+ascii_identifiers+tex_math_single_backslash --output dashboard-1.html --email-obfuscation none --self-contained --standalone --section-divs --template /home/wibeasley/R/x86_64-pc-linux-gnu-library/3.5/flexdashboard/rmarkdown/templates/flex_dashboard/resources/default.html --include-in-header /tmp/RtmpoKZT9P/rmarkdown-str1a572b172c04.html --variable &#39;theme:journal&#39; --include-in-header /tmp/RtmpoKZT9P/rmarkdown-str1a5732832f2.html --mathjax --variable &#39;mathjax-url:https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&#39; --include-in-header /tmp/RtmpoKZT9P/file1a576973be28html --include-before-body /tmp/RtmpoKZT9P/file1a578d4b98b.html --include-after-body /tmp/RtmpoKZT9P/file1a5721327b4f.html --highlight-style pygments --include-before-body /tmp/RtmpoKZT9P/file1a577bb53f26.html --include-after-body /tmp/RtmpoKZT9P/file1a573bbb0d84.html
+</code></pre>
+
+<pre><code>## 
+## Output created: dashboard-1.html
+</code></pre>
+
+<pre><code>## /home/wibeasley/Documents/wibeasley/RAnalysisSkeleton/analysis/dashboard-1/dashboard-1.html
+</code></pre>
+
+<p><img src="figure/reproduce-Rmdrun-1.png" title="plot of chunk run" alt="plot of chunk run" style="display: block; margin: auto;" /></p>
+
+<pre><code class="r">message(&quot;Completed update of files at &quot;, Sys.time(), &quot;&quot;)
+</code></pre>
+
+<pre><code>## Completed update of files at 2019-02-27 21:17:20
+</code></pre>
+
+<pre><code class="r">elapsed_time
+</code></pre>
+
+<pre><code>##    user  system elapsed 
+##  40.791   3.799  52.903
+</code></pre>
+
+<p>The R session information (including the OS info, R version and all
+packages used):</p>
+
+<pre><code class="r">sessionInfo()
+</code></pre>
+
+<pre><code>## R version 3.5.2 (2018-12-20)
+## Platform: x86_64-pc-linux-gnu (64-bit)
+## Running under: Ubuntu 18.04.2 LTS
+## 
+## Matrix products: default
+## BLAS: /usr/lib/x86_64-linux-gnu/blas/libblas.so.3.7.1
+## LAPACK: /usr/lib/x86_64-linux-gnu/lapack/liblapack.so.3.7.1
+## 
+## locale:
+##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
+##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
+##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
+##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
+##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
+## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  methods   base     
+## 
+## other attached packages:
+## [1] plotly_4.8.0.9000     flexdashboard_0.5.1.1 lme4_1.1-20          
+## [4] Matrix_1.2-15         knitr_1.21            ggplot2_3.1.0        
+## [7] magrittr_1.5         
+## 
+## loaded via a namespace (and not attached):
+##  [1] nlme_3.1-137                fs_1.2.6                   
+##  [3] usethis_1.4.0               lubridate_1.7.4            
+##  [5] devtools_2.0.1              bit64_0.9-7                
+##  [7] RColorBrewer_1.1-2          webshot_0.5.1              
+##  [9] httr_1.4.0                  rprojroot_1.3-2            
+## [11] tools_3.5.2                 backports_1.1.3            
+## [13] DT_0.5                      R6_2.4.0                   
+## [15] DBI_1.0.0                   lazyeval_0.2.1             
+## [17] colorspace_1.4-0            withr_2.1.2                
+## [19] tidyselect_0.2.5            prettyunits_1.0.2          
+## [21] processx_3.2.1              bit_1.1-14                 
+## [23] compiler_3.5.2              cli_1.0.1                  
+## [25] rvest_0.3.2                 OuhscMunge_0.1.9.9010      
+## [27] Cairo_1.5-9                 xml2_1.2.0                 
+## [29] desc_1.2.0                  labeling_0.3               
+## [31] scales_1.0.0.9000           checkmate_1.9.1            
+## [33] readr_1.3.1                 callr_3.1.1                
+## [35] odbc_1.1.6                  stringr_1.4.0              
+## [37] digest_0.6.18               minqa_1.2.4                
+## [39] rmarkdown_1.11              pkgconfig_2.0.2            
+## [41] htmltools_0.3.6             sessioninfo_1.1.1          
+## [43] highr_0.7                   htmlwidgets_1.3            
+## [45] rlang_0.3.1                 rstudioapi_0.9.0           
+## [47] RSQLite_2.1.1               shiny_1.2.0                
+## [49] generics_0.0.2              zoo_1.8-4                  
+## [51] testit_0.9                  jsonlite_1.6               
+## [53] crosstalk_1.0.0             dplyr_0.8.0.1              
+## [55] config_0.3                  kableExtra_1.0.1           
+## [57] Rcpp_1.0.0                  munsell_0.5.0              
+## [59] stringi_1.3.1               yaml_2.2.0                 
+## [61] MASS_7.3-51.1               pkgbuild_1.0.2             
+## [63] plyr_1.8.4                  grid_3.5.2                 
+## [65] blob_1.1.1                  promises_1.0.1             
+## [67] crayon_1.3.4                lattice_0.20-38            
+## [69] splines_3.5.2               hms_0.4.2.9001             
+## [71] ps_1.3.0                    pillar_1.3.1               
+## [73] pkgload_1.0.2               TabularManifest_0.1-16.9003
+## [75] glue_1.3.0                  packrat_0.5.0              
+## [77] evaluate_0.13               data.table_1.12.0          
+## [79] remotes_2.0.2               httpuv_1.4.5.1             
+## [81] nloptr_1.2.1                testthat_2.0.1             
+## [83] gtable_0.2.0                purrr_0.3.0                
+## [85] tidyr_0.8.2                 assertthat_0.2.0           
+## [87] xfun_0.5                    mime_0.6                   
+## [89] xtable_1.8-3                broom_0.5.1                
+## [91] later_0.8.0                 viridisLite_0.3.0          
+## [93] RcppRoll_0.3.0              tibble_2.0.1               
+## [95] memoise_1.1.0
+</code></pre>
+
+<pre><code class="r">Sys.time()
+</code></pre>
+
+<pre><code>## [1] &quot;2019-02-27 21:17:23 CST&quot;
+</code></pre>
+
+</body>
+
+</html>
